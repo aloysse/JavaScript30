@@ -82,9 +82,9 @@
       let sec = d.getSeconds();
       let min = d.getMinutes();
       let hour = d.getHours();
-      let secAngle = 90 + oneUnitDegree * sec;
-      let minAngle = 90 + oneUnitDegree * min + secAngle / 60;
-      let hourAngle = 90 + hourUniDegree * hour + minAngle / 60;
+      let secAngle = Math.ceil(90 + oneUnitDegree * sec);
+      let minAngle = Math.ceil(90 + oneUnitDegree * min + secAngle / 60);
+      let hourAngle = Math.ceil(90 + hourUniDegree * hour + minAngle / 60);
       console.log(hour + " " + min + " " + sec);
       console.log(hourAngle);
       secHand.style.transform = `rotate(${secAngle}deg)`;
