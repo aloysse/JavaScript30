@@ -67,20 +67,22 @@
       position: absolute;
       top: 50%;
       transform-origin: right;
-      transform: rotate(90deg);
     }
   </style>
 
   <script>
     const oneUnitDegree = 360 / 60;
-
+    const secHand = document.querySelector(".second-hand");
+    console.log(secHand);
     let getTime = setInterval(function () {
       let d = new Date();
       let sec = d.getSeconds();
       let min = d.getMinutes();
       let hour = d.getHours();
+      let angle = 90 + oneUnitDegree * sec;
       console.log(hour + " " + min + " " + sec);
-
+      console.log(angle);
+      secHand.style.transform = `rotate(${angle}deg)`;
     }, 1000);
 
   </script>
