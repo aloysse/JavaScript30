@@ -72,6 +72,7 @@
 
   <script>
     const oneUnitDegree = 360 / 60;
+    const hourUniDegree = 360 / 12;
     const secHand = document.querySelector(".second-hand");
     const minHand = document.querySelector(".min-hand");
     const hourHand = document.querySelector(".hour-hand");
@@ -83,10 +84,12 @@
       let hour = d.getHours();
       let secAngle = 90 + oneUnitDegree * sec;
       let minAngle = 90 + oneUnitDegree * min + secAngle / 60;
+      let hourAngle = 90 + hourUniDegree * hour + minAngle / 60;
       console.log(hour + " " + min + " " + sec);
-      console.log(minAngle);
+      console.log(hourAngle);
       secHand.style.transform = `rotate(${secAngle}deg)`;
       minHand.style.transform = `rotate(${minAngle}deg)`;
+      hourHand.style.transform = `rotate(${hourAngle}deg)`;
     }, 1000);
 
   </script>
