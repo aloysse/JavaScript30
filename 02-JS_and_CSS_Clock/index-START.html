@@ -67,7 +67,10 @@
       position: absolute;
       top: 50%;
       transform-origin: right;
+      transition: all 0.1s;
     }
+
+    transition-timing-function: cubic-bezier(.29, 1.01, 1, -0.68);
 
     .hour-hand {
       margin-left: 10%;
@@ -78,6 +81,10 @@
       width: 35%;
       margin-left: 15%;
     }
+
+    .second-hand {
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    }
   </style>
 
   <script>
@@ -86,7 +93,7 @@
     const secHand = document.querySelector(".second-hand");
     const minHand = document.querySelector(".min-hand");
     const hourHand = document.querySelector(".hour-hand");
-    console.log(secHand);
+
     let getTime = setInterval(function () {
       let d = new Date();
       let sec = d.getSeconds();
@@ -95,8 +102,6 @@
       let secAngle = Math.ceil(90 + oneUnitDegree * sec);
       let minAngle = Math.ceil(90 + oneUnitDegree * min + secAngle / 60);
       let hourAngle = Math.ceil(90 + hourUniDegree * hour + minAngle / 60);
-      console.log(hour + " " + min + " " + sec);
-      console.log(hourAngle);
       secHand.style.transform = `rotate(${secAngle}deg)`;
       minHand.style.transform = `rotate(${minAngle}deg)`;
       hourHand.style.transform = `rotate(${hourAngle}deg)`;
