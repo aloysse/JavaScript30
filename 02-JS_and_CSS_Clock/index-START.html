@@ -66,6 +66,8 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: right;
+      transform: rotate(90deg);
     }
   </style>
 
@@ -78,8 +80,9 @@
       let min = d.getMinutes();
       let hour = d.getHours();
       console.log(hour + " " + min + " " + sec);
-    }, 1000)
-    // console.log(sec);
+
+    }, 1000);
+
   </script>
 </body>
 
