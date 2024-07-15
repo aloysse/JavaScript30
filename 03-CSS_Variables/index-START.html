@@ -47,6 +47,15 @@
   </style>
 
   <script>
+    let inputs = document.querySelectorAll(".controls input");
+    function changeValue() {
+      console.log(this.value);
+
+    }
+    inputs.forEach(input => input.addEventListener("change", changeValue));
+    inputs.forEach(input => input.addEventListener("mpusemove", changeValue));
+
+
   </script>
 
 </body>
