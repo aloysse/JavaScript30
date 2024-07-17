@@ -28,6 +28,7 @@
       misc styles, nothing to do with CSS variables
     */
 
+
     body {
       text-align: center;
       background: #193549;
@@ -49,7 +50,8 @@
   <script>
     let inputs = document.querySelectorAll(".controls input");
     function changeValue() {
-      console.log(this.value);
+      const suffix = this.dataset.sizing || '';
+      console.log(this.value + suffix);
 
     }
     inputs.forEach(input => input.addEventListener("change", changeValue));
