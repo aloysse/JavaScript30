@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Type Ahead 👀</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
+
 <body>
 
   <form class="search-form">
@@ -15,9 +17,28 @@
       <li>or a state</li>
     </ul>
   </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+  <script>
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    const suggestionsUl = document.querySelector('.suggestions');
+    document.body.onload = addElement;
 
-</script>
+    function addElement(city, state, population) {
+      const newLi = document.createElement("li");
+      const newNameSpan = document.createElement("span");
+      const newNameText = document.createTextNode(`${city}, ${state}`);
+      newNameSpan.appendChild(newNameText);
+      newNameSpan.classList.add("name");
+      const newPopulationSpan = document.createElement("span");
+      const newPopulationText = document.createTextNode(parseInt(population).toLocaleString());
+      newPopulationSpan.classList.add("population");
+      newPopulationSpan.appendChild(newPopulationText);
+      newLi.appendChild(newPopulationSpan);
+      newLi.insertBefore(newNameSpan, newPopulationSpan);
+      suggestionsUl.appendChild(newLi);
+    }
+
+
+  </script>
 </body>
+
 </html>
