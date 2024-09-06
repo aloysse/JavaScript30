@@ -131,7 +131,13 @@
     let panels = document.querySelectorAll('div.panel')
     panels.forEach(panel => panel.addEventListener('click', openPanel, true));
     function openPanel() {
-      console.log("OK");
+
+      if (this.classList.contains('open')) {
+        this.classList.remove('open');
+      } else {
+        this.classList.add('open');
+      }
+      console.log(this);
     }
 
   </script>
